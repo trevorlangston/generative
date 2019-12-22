@@ -2,6 +2,7 @@ import numpy as np
 import os
 import cairo
 from shapes import Straight_Line
+from utils import white_background, write_png
 
 FILENAME = os.path.basename(__file__).strip(".py")
 EXT = "png"
@@ -12,17 +13,8 @@ surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, WIDTH, HEIGHT)
 ctx = cairo.Context(surface)
 
 
-def white_background():
-    ctx.set_source_rgba(1.0, 1.0, 1.0, 1.0)
-    ctx.paint()
-
-
-def write(filename, ext):
-    surface.write_to_png("images/{}.{}".format(filename, ext))
-
-
 def main():
-    white_background()
+    white_background(ctx)
     for n in range(30000):
         x = np.random.random(2) * WIDTH
         y = (np.random.random(2) ** 0.25) * WIDTH
@@ -30,7 +22,7 @@ def main():
         p1 = [x[1], y[1]]
         Straight_Line(p0, p1, LINE_WIDTH).draw(ctx)
 
-    write(FILENAME, EXT)
+    write_png(surface, FILENAME, EXT)
 
 
 if __name__ == "__main__":
