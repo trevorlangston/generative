@@ -1,4 +1,3 @@
-import numpy as np
 import random
 import os
 import cairo
@@ -45,19 +44,6 @@ def recurse(rect, stop):
 
     recurse(Rectangle(rect.p0, p0_width, p0_height, LINE_WIDTH), stop)
     recurse(Rectangle(p1, p1_width, p1_height, LINE_WIDTH), stop)
-
-    #  half_width = np.random.normal(rect.width // 2, rect.width // 4, 1)
-    #  half_height = np.random.normal(rect.height // 2, rect.height // 4, 1)
-    #
-    #  p0 = rect.p0
-    #  p1 = [rect.p0[0] + half_width, rect.p0[1]]
-    #  p2 = [rect.p0[0], rect.p0[1] + half_height]
-    #  p3 = [rect.p0[0] + half_width, + rect.p0[1] + half_height]
-
-    #  recurse(Rectangle(p0, half_width, half_height, LINE_WIDTH))
-    #  recurse(Rectangle(p1, half_width, half_height, LINE_WIDTH))
-    #  recurse(Rectangle(p2, half_width, half_height, LINE_WIDTH))
-    #  recurse(Rectangle(p3, half_width, half_height, LINE_WIDTH))
 
 
 if __name__ == "__main__":
